@@ -1,0 +1,3 @@
+The things in thsi C++ DSA folder are arranged in such a way that you need to give input in input.txt file and output in output.txt file and 
+tu run the code you need to press Ctrl+Shift+B
+***START READING FROM DEMO.CPP THEN TO JAS_1***
