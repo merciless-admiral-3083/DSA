@@ -1,6 +1,15 @@
 #include<bits/stdc++.h> //we didnt use iostream because this bits.. is used to include all libraries at once here
 using namespace std;
 
+//READ THIS CLASS AFTER LINE 121
+void jalapeno(){ //void is used to not giveany output until it is used to get one
+        cout<<"HELLO WORLD" <<endl;
+    }
+
+void Guatemala(string name){
+    cout <<"Hey "<< name <<endl;
+}
+
 
 int main() {
     int x,y; //it is used to define 2 variables
@@ -84,17 +93,17 @@ int main() {
     int arr[5]; //used to define length of array
     cin>>arr[0]>>arr[1]>>arr[2]>>arr[3]>>arr[4]; //used to print array
     arr[3] += 10; //mathematical operations on array
-    cout<<arr[3]; //used to print math's output
+    cout<<arr[3] <<endl; //used to print math's output
     arr[4]  =15; //we can change value of 4th position
     //we can store decimals by replacing int arr[5] to double arr[5]
     cout << "******************************************************************10" << endl;
     int ar[3][5]; //used for 2D array aka matrix
     ar[3][5]=68; //value at 3x5
-    cout<<ar[3][5];
+    cout<<ar[3][5] <<endl;
     cout << "******************************************************************11" << endl;
     string s ="Jaspreet";
     int len =s.size(); //used to obtain size
-    cout<<s[len - 1];// -1 is mandatory and it will then print the last alphabet of the word
+    cout<<s[len - 1] <<endl;// -1 is mandatory and it will then print the last alphabet of the word
     cout << "******************************************************************12" << endl;
     int i;
     for(i=1;i<=5;i=i+1){
@@ -107,29 +116,50 @@ int main() {
         j=j+1; 
     }
     cout << "******************************************************************13" << endl;
+    jalapeno(); //here i used it to get output
+    string name;
+    cin.ignore();
+    getline(cin,name);
+    Guatemala(name);
+    
+    string name2;
+    getline(cin,name2);
+    Guatemala(name2); //we can give as many names as possible
+    cout<<"******************************************************************14" << endl;
+    //int *Anything*= sum(*Num 1*, *Num2*);
+    //cout<< *Anything*;
+    //it is used to do math
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return 0; //it is present at the end of code and it ensures that the whole code has been fully executed
 }
-void jalapeno(){ //void is used to not giveany output until it is used to get one
-        cout<<"HELLO WORLD";
-    }
-    int main(){
-        jalapeno(); //here i used it to get output 
-        cout<<"******************************************************************14" << endl;
-        return 0;
-    }
-void Guatemala(string name){
-    cout <<"Hey "<< name <<endl;
-}
-int main(){
-    string name;
-    cin>>name;
-    Guatemala(name);
 
-    string name2;
-    cin>>name2;
-    Guatemala(name2); //we can give as many names as possible
-    cout<<"******************************************************************15" << endl;
- //int *Anything*= sun(*Num 1*, *Num2*);
- //cout<< *Anything*;
- //it is used to do math
-}
