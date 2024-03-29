@@ -11,5 +11,5 @@ This is the combined data
 3
 4
 5
-South America
-North America
+Up Town
+Down
