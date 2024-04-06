@@ -126,8 +126,250 @@ void Vector(){ //I havent put any print statement for this class
     vector<int>copy(2,50); //{50,50}
     v.insert(v.begin(), copy.begin(), copy.end());//{50,50,300,10,10,100,100}
     cout<<v.size(); // 2
+    v.pop_back(); //removes last element of vector
+    v1.swap(v2); //swap v1 to v2 and v2 to v1
+    v.clear(); //removes the entire vector and shows it as blank
+    cout<<v.empty(); //it wil show true if there are no element in vector and vice versa
 }
 
+void List(){
+    list<int> ls;
+    ls.push_back(2); //{2}
+    ls.emplace_back(4); //{2,4}
+    ls.push_front(5); //{5,2,4}
+    ls.emplace_front();
+    //Rest all functions are same as vector
+}
+
+void Deque(){
+    deque<int> dq; // Create a deque of integers
+
+    dq.push_back(1); // Insert 1 at the back of the deque (dq = [1])
+    dq.emplace_back(2); // Insert 2 at the back of the deque (dq = [1, 2])
+    dq.push_front(4); // Insert 4 at the front of the deque (dq = [4, 1, 2])
+    dq.emplace_front(3); // Insert 3 at the front of the deque (dq = [3, 4, 1, 2])
+
+    dq.pop_back(); // Remove the element from the back of the deque (dq = [3, 4, 1])
+    dq.pop_front(); // Remove the element from the front of the deque (dq = [4, 1])
+
+    dq.back(); // Print the value of the back element (which is 1)
+    dq.front(); // Print the value of the front element (which is 4)
+}
+
+void stacks(){ //It follows LIFO(Last In First Out) it is like a stack of books, the top book numbered 5 and last numbered 1
+// 5
+// 4
+// 3
+// 2
+// 1
+stack<int> st;
+st.push(1); // (1)
+st.push(2); // (2, 1)
+st.push(3); // (3, 2, 1)
+st.push(3); // (3, 3, 2, 1)
+st.emplace(5); // (5, 3, 3, 2, 1)
+cout << st.top(); // prints 5
+st.pop(); // st looks like (3, 3, 2, 1)
+cout << st.top(); //3
+cout << st.size(); //4
+cout << st.empty();
+stack<int> st1, st2; //used for swapping
+st1.swap(st2);
+
+     
+}
+
+void Queue(){
+    queue<int> q;
+q.push(1); // (1)
+q.push(2); // (1, 2)
+
+q.emplace(4); // (1,2,4)
+
+q.back() + 5;
+
+cout << q.back(); // prints 9
+
+//q is (1, 2, 9) now
+cout << q.front(); // prints 1
+
+q.pop(); //(2, 9) removes first element
+
+cout << q.front(); // prints 2
+
+// size swap empty same as stack
+
+}
+
+void Priority(){
+priority_queue<int> pq;
+
+pq.push(5); // (5)
+pq.push(2); // (5, 2) //smaller number than 5 so it comes after 5
+//it is just descending order
+pq.push(8); // (8, 5, 2) bigger no so before 5
+pq.emplace(10); // (10, 8, 5, 2)
+
+cout << pq.top(); // prints 10
+
+pq.pop(); //(8, 5, 2)
+
+cout << pq.top(); // prints B 
+
+// size swap empty function same as others
+
+// Minimum Heap
+priority_queue<int, vector<int>, greater<int>> pq; //this will reversethe pattern  to ascending order
+pq.push(5); // (5)
+
+pq.push(2); // (2,5)
+pq.push(8); // (2, 5, 8)
+
+pq.emplace(10); // [2, 5, 8, 10)
+
+cout << pq.top(); // prints 2
+
+}
+
+void sets(){ //this functions exactly as a set in maths
+//they dont store duplicate values like {1,1} only {1} will be counted
+set<int> st;
+st.insert(1); // (1)
+
+st.emplace(2); // (1, 2)
+st.insert(2); // (1, 2)
+st.insert(4); // (1, 2, 4)
+st.insert(3); // {1, 2, 3, 4]
+
+// Functionality of insert in vector
+// can be used also, that only increases
+
+// efficiency
+
+//begin(), end(), thegin(), rend(), size(),
+//empty() and swap() are same as those of above
+
+// 1, 2, 3, 4, 5
+auto it=st.find(3); //it = iterator, it will help find 3
+
+// (1, 2, 3, 4, 5)
+auto it=st.find(6); //6 is not there so iterator will show st.end(); i.e. it is not present
+
+// (1, 4, 5)
+st.erase(5); // erases 5 // takes logarithmic time
+
+int cnt = st.count(1); //if it exist theen it will show 1 else 0
+
+auto it=st.find(3);
+st.erase(it); //it will find and erase 3
+
+auto it1=st.find(2);
+auto it2=st.find(3);
+st.erase(it1,it2); //it wwill remove the whole block of elements following thee previous rule of [...)
+
+auto it=st.lower_bound(2); //let say we have number 2 then this value can be obtained by approximating
+// 1.5<=2<2.5 here thee lowest value which can approx up to 2 is 1.5 so lower bound is 1.5
+//same for upper bound which is 3
+auto it=st.upper_bound(3);
+
+
+
+
+
+}
+
+void multiSet(){
+multiset<int> ms;
+ms.insert(1); // (1)
+ms.insert(1); // (1, 1)
+ms.insert(1); // (1, 1, 1)
+
+ms.erase(1); // all I's erased
+
+int cnt = ms.count(1);
+
+// only a single one erased
+ms.erase(ms.find(1));
+
+ms.erase(ms.find(1), std::next(ms.find(1))); //removes first and next element
+
+// rest all function same as set
+
+}
+
+void Map(){ //stores unique keys in soorted order
+   map<int, int> mpp;
+
+map<int, pair<int, int>> mpp;
+
+map< pair<int, int>, int> mpp;
+
+mpp[1] = 2;
+mpp.emplace((3, 1));
+
+mpp.insert(make_pair(2, 4));
+
+
+for(auto it: mpp) {      cout << it.first << " " << it.second << endl;
+
+}
+
+cout << mpp[1]<<endl;
+cout << mpp[5];
+
+
+auto it = mpp.find(5);
+
+auto it=mpp.lower_bound(2);
+auto it=mpp.upper_bound(3);
+
+}
+
+
+void Extras(){ //See yt "Complete C++ STL in 1 video" by Take U Forward from 50 min+
+    
+//     bool comp(pair<int, int> a, pair<int, int> b) {
+//     if (a.second == b.second)
+//         return a.first > b.first;
+//     return a.second < b.second;
+//     }
+
+//     int a[]={1,2,3,4,5};
+
+//     sort(a, a + n);
+//     vector<int> v={1,2,3,4,5};
+//     sort(v.begin(), v.end());
+
+// sort(a+2, a+4);
+
+// sort(a, a+n, greater<int>());
+
+// pair<int, int> a[] = {{1,2}, {2, 1}, {4, 1}};
+
+// //sort it according to second element
+// // if second element is same, then sort
+
+// // it according to first element but in descending
+
+// sort(a, a+n, comp);
+
+// // (4,1), (2, 1), (1, 2));
+
+// int num = 7;
+// int cnt = __builtin_popcount();
+
+// long Long num = 165786578687;
+// int cnt= __builtin_popcountll();
+
+// string s = "123";
+// do{
+
+//     cout << s << endl;
+// }while (next_permutation(s.begin(), s.end()));
+
+ }
+
+//Time complexity of 'push' and 'pop' happpens in log n and time complexity of top in o(1)
 int main() {
     int x,y; //it is used to define 2 variables
     cin >> x >> y; //used to ask input of 2 variables
@@ -136,7 +378,7 @@ int main() {
     cout << "******************************************************************1" << endl;
     //there are typs of numerical inputs like we have integer, long, longlong etc
     //int a=10; //integer have a limit of numerical
-   // long a=103; //this has a larger limit of numericals i.e. range
+    //long a=103; //this has a larger limit of numericals i.e. range
     //long long a=500; //longer longer limit
     //cin >> a;  //it will print the first value i.e. 10 here
     cout << "******************************************************************2" << endl;
