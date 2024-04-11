@@ -82,15 +82,41 @@ then (3,3)
 There is a concept called recursion tree which simplifies tthe way we see the functin happening
 
                     f(1,3)➡️ Ranveer
-                    ⬆️⬇️
+                    ⬆️ ⬇️
                     f(2,3)➡️ Ranveer
-                    ⬆️⬇️
+                    ⬆️ ⬇️
                     f(3,3)➡️ Ranveer
-                    ⬆️⬇️
-                    f(4,3)
+                    ⬆️ ⬇️
+                    f(4,3) 
 first down arrow works, here it says that  f 1,3 is executed move to next one 
 till it reaches (4,3), (4,3) has return fuction so arrow will move back till f(1,3)
 it is called recursion tree
+
+Functional constructor:
+    A functional constructor is a constructor that does not take any arguments. 
+    It is used to initialize the data members of an object to their default values.
+
+                        class MyClass {
+                    public:
+                    MyClass() {
+                        // Initialize data members to default values
+                    }
+                    };
+
+Parameterized constructor:
+    A parameterized constructor is a constructor that takes one or more arguments. 
+    It is used to initialize the data members of an object to the values that are passed to the constructor.
+
+                    class MyClass {
+                public:
+                MyClass(int x, int y) {
+                    // Initialize data members to the values of x and y
+                }
+                };
+
+
+
+
 
 
 
