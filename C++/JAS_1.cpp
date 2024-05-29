@@ -1,5 +1,6 @@
 #include<bits/stdc++.h> //we didnt use iostream because this bits.. is used to include all libraries at once here
-using namespace std;
+using namespace std; // Use the std namespace
+
 
 //READ THIS CLASS AFTER LINE 121
 void jalapeno(){ //void is used to not giveany output until it is used to get one
@@ -65,6 +66,7 @@ void print4(int q){
         cout<<endl;
     }
 }
+//PRINT STATEMENTS FOR THEW BELOW THINGS ARE NOT BEING EXECUTED BECAUSE IT IS OF NO USE TO EXECUTE THEM
 
 void pairs(){// pais ar3e somehow similar to sets in maths
    pair<int, int> g={1,3}; //easy to understand
@@ -86,17 +88,9 @@ void Vector(){ //I havent put any print statement for this class
     v.push_back(1); ///this will add 1 to the set {1}
     v.emplace_back(2); //it also has the same function as push_back BUT THIS IS FASTER, new set is {1,2}
 
-    vector<pair<int, int>> vec;//we can make an existing pair a vector
-
-    vec.push_back({1, 2}); //we can push or put a whole pair in a vector
-    vec.emplace_back(1, 2);
-
     vector<int> v1(5, 100); //this will give 5 100s in the set i.e. {100,100,100,100,100} value starts from 0th value
 
     vector<int> v2(5); //it will make blank set of 5 values {0,0,0,0,0}
-
-    vector<int> v1(5, 20); //same as above
-    vector<int> v2(v1);  //it will replicate the same vector v1 for some other use
 
     vector<int>::iterator jas =v.begin(); //let say we have a set {1,2,3,4,5} then iterator just helps us show that we have a set present
     jas++;  //it will move the pointer or selector of iterator one position right i.e. if it points to 1 then now it will point to 2
@@ -120,7 +114,6 @@ void Vector(){ //I havent put any print statement for this class
     //READ CAREFULLY, the above works in the way [Start, end) i.e. above the +2
     //element will be included in the erase BUT not the +4 element
     //below ones are self explanatory
-    vector<int>v(2,100); //{100,100}
     v.insert(v.begin(),300); //{300,100,100}
     v.insert(v.begin()+1,2,10); //{300,10,10,100,100}
     vector<int>copy(2,50); //{50,50}
@@ -152,8 +145,8 @@ void Deque(){
     dq.pop_back(); // Remove the element from the back of the deque (dq = [3, 4, 1])
     dq.pop_front(); // Remove the element from the front of the deque (dq = [4, 1])
 
-    dq.back(); // Print the value of the back element (which is 1)
-    dq.front(); // Print the value of the front element (which is 4)
+    cout<<dq.back()<<endl; // Print the value of the back element (which is 1)
+    cout<<dq.front()<<endl; // Print the value of the front element (which is 4)
 }
 
 void stacks(){ //It follows LIFO(Last In First Out) it is like a stack of books, the top book numbered 5 and last numbered 1
@@ -219,15 +212,15 @@ cout << pq.top(); // prints B
 // size swap empty function same as others
 
 // Minimum Heap
-priority_queue<int, vector<int>, greater<int>> pq; //this will reversethe pattern  to ascending order
-pq.push(5); // (5)
+priority_queue<int, vector<int>, greater<int>> pq_min; //this will reversethe pattern  to ascending order
+pq_min.push(5); // (5)
 
-pq.push(2); // (2,5)
-pq.push(8); // (2, 5, 8)
+pq_min.push(2); // (2,5)
+pq_min.push(8); // (2, 5, 8)
 
-pq.emplace(10); // [2, 5, 8, 10)
+pq_min.emplace(10); // [2, 5, 8, 10)
 
-cout << pq.top(); // prints 2
+cout << pq_min.top(); // prints 2
 
 }
 
@@ -250,27 +243,27 @@ st.insert(3); // {1, 2, 3, 4]
 //empty() and swap() are same as those of above
 
 // 1, 2, 3, 4, 5
-auto it=st.find(3); //it = iterator, it will help find 3
+auto it_find3=st.find(3); //it = iterator, it will help find 3
 
 // (1, 2, 3, 4, 5)
-auto it=st.find(6); //6 is not there so iterator will show st.end(); i.e. it is not present
+auto it_not_found =st.find(6); //6 is not there so iterator will show st.end(); i.e. it is not present
 
 // (1, 4, 5)
 st.erase(5); // erases 5 // takes logarithmic time
 
 int cnt = st.count(1); //if it exist theen it will show 1 else 0
 
-auto it=st.find(3);
-st.erase(it); //it will find and erase 3
+auto it_find3_again =st.find(3);
+st.erase(it_find3_again); //it will find and erase 3
 
 auto it1=st.find(2);
 auto it2=st.find(3);
 st.erase(it1,it2); //it wwill remove the whole block of elements following thee previous rule of [...)
 
-auto it=st.lower_bound(2); //let say we have number 2 then this value can be obtained by approximating
+auto lower_bound_2 =st.lower_bound(2); //let say we have number 2 then this value can be obtained by approximating
 // 1.5<=2<2.5 here thee lowest value which can approx up to 2 is 1.5 so lower bound is 1.5
 //same for upper bound which is 3
-auto it=st.upper_bound(3);
+auto lower_bound_3 =st.upper_bound(3);
 
 
 
@@ -291,40 +284,40 @@ int cnt = ms.count(1);
 // only a single one erased
 ms.erase(ms.find(1));
 
-ms.erase(ms.find(1), std::next(ms.find(1))); //removes first and next element
+ms.erase(ms.find(1),  next(ms.find(1))); //removes first and next element
 
 // rest all function same as set
 
 }
 
-void Map(){ //stores unique keys in soorted order
-   map<int, int> mpp;
+void Map(){ //stores unique keys in sorted order
+   map<int, int> mpp_int;
 
-map<int, pair<int, int>> mpp;
+map<int, pair<int, int>> mpp_pair_int;
 
-map< pair<int, int>, int> mpp;
+map< pair<int, int>, int> mpp_int_pair;
 
-mpp[1] = 2;
-mpp.emplace((3, 1));
+mpp_int[1] = 2;
 
-mpp.insert(make_pair(2, 4));
-
-
-for(auto it: mpp) {      cout << it.first << " " << it.second << endl;
-
-}
-
-cout << mpp[1]<<endl;
-cout << mpp[5];
+mpp_pair_int.emplace(3,  make_pair(1, 1)); // Corrected emplace syntax
+mpp_int_pair.insert( make_pair( make_pair(2, 4), 4)); // Inserting a pair as key
 
 
-auto it = mpp.find(5);
-
-auto it=mpp.lower_bound(2);
-auto it=mpp.upper_bound(3);
+for(auto it: mpp_int) {      
+     cout << it.first << " " << it.second <<  endl;
 
 }
 
+ cout << mpp_int[1] <<  endl; // Output: 2
+ cout << mpp_int[5] <<  endl; // Output: 0 (default value because key not found)
+
+
+auto find_5 = mpp_int.find(5);
+
+auto lower_bound_5=mpp_int.lower_bound(2);
+auto lower_bound_7=mpp_int.upper_bound(3);
+
+}
 
 void Extras(){ //See yt "Complete C++ STL in 1 video" by Take U Forward from 50 min+
     
@@ -368,6 +361,31 @@ void Extras(){ //See yt "Complete C++ STL in 1 video" by Take U Forward from 50 
 // }while (next_permutation(s.begin(), s.end()));
 
  }
+
+void f(int i, int arrays[], int n){ //it is used to reverse an array ex. [1 2 3 4 5] to [5 4 3 2 1]
+    if(i>=n/2) return; //n/2 means that we have reached the centre of the array, now its time to return back
+    swap(arrays[i], arrays[n-i-1]); //then swap the values of i to n-i-1 just like  1 2 3 4 5 to 5 4 3 2 1
+    f(i+1,arrays,n);
+} //see line  560 for it
+
+void recursiveFunction(int n) { //it is used by the  function to call itself
+    //code on line 582
+    // Base case: stop recursion when n is less than or equal to 0
+    if (n <= 0) {
+        return;
+    }
+
+    // Print the outer recursive call
+    cout << "Outer Recursive Call: " << n << endl;
+
+    // Make two recursive calls
+    recursiveFunction(n - 1); // First recursive call
+    recursiveFunction(n - 2); // Second recursive call
+
+    //Learn more about this concept from 
+    // https://www.prodevelopertutorial.com/introduction-to-recursion-with-stack-frame-and-recursion-tree/#:~:text=A%20recursion%20tree%20is%20nothing,printing%20n%5Eth%20Fibonacci%20number.&text=Right%20now%20the%20compiler%20is,other%20are%20in%20paused%20state.&text=Now%20fib%20(%201%20)%2C%20it,it%20is%20popped%20from%20stack
+    //do learn how it works, in a brief, it works by calling  itself for working, if first satisfies first call then second call
+}
 
 //Time complexity of 'push' and 'pop' happpens in log n and time complexity of top in o(1)
 int main() {
@@ -469,7 +487,7 @@ int main() {
         cout<<"Jaspreet"<<endl;
     }
     cout<<i<<endl;
-    int j;
+    int j=0;
     while(j<=5){
         cout<<"Nahal" <<j<< endl;
         j=j+1; 
@@ -545,7 +563,138 @@ int main() {
     //you just need to replace e with w on line 63
     //PATTERNS ARE NOT AT ALL NECESSARY TO BE PREPARED FOR INTERVIEW BUT NECESSSARY FOR EXAMS
     cout<<"******************************************************************19" << endl;
-    pairs();
+    // pairs(); //commented because theey were used just to explain above
+    // Vector();
+    // List();
+    // Deque();
+    // stacks();
+    // Queue();
+    // Priority();
+    // sets();
+    // multiSet();
+    //Map();
+    cout<<"******************************************************************20" << endl;
+    int number;//there is a number
+    cin>>number; //we put the number given by user
+    int arrays[number]; //we put 'number' in the form of an array
+    for(int i=0; i<number;i++) cin>> arrays[i]; 
+    f(0,arrays,number);
+    for(int i=0;i<number;i++) cout<<arrays[i]<<" ";
+    cout<<endl;
+    cout<<"******************************************************************21" << endl;
+    int numerical = 4;
+    recursiveFunction(numerical);
+    cout<<"******************************************************************22" << endl;
+   //now we will see how to count number of characters in alphabets
+   
+//     string string; //we defined a string
+//     cin >> string;
+//     int hash[256] = {0}; //hash[] is the size of the array if can be anything big, {0} tells that it initially starts with 0 as counting
+
+//     for(int eye=0;eye<string.size();eye++){ //we defined the size of string to increase till we count the characters in thee word
+//         hash[string[eye]]++; //++ means keeps increasing
+//     }
+//     int queen; //it is the number of characters
+//     cin >> queen;
+
+//     while(queen--) { //-- shows tha when you find that word enter it in the required place
+//         char character;
+//         cin >> character;
+//     cout << hash[character] << endl;
+// }
+//SOME THINGS CAN'T BE FULLY UNDERSTOOD INSTEAD TRY TO UNDERSTAND THEIR WAY
+    cout<<"******************************************************************23" << endl;
+   //HASHING- It is pre-storing and fetching
+   /*If we are given an array with numbers like 1 2 3 2 1 in it and we have to ocunt the number of 
+   1s or 2s etc in this then we can do it start counting, let say we are given to cont 1 in the array
+   then th intal value will be zero and when we reach the first number we can say that 1 has appreared
+   so the count will be updated to 1, when we go to the 2nd digit i.e. 2 then nothing will be updated and so on
+   the loop will continue */
+    int norwaym;                         
+  cin >> norwaym;
+  int ammay[norwaym]; //whatever be the numbers entered, make an array of them
+
+  for(int i=0;i<norwaym;i++) { //yk it
+    cin >> ammay[i]; //here position is given to each input value
+  }
+
+                                                       
+  // precompute
+  int hash[13] = {0}; //we define the size of the array as 13, that it has 13 blocks
+
+  for(int i=0;i<norwaym;i++) {  
+    hash[ammay[i]] += 1; //we start counting that when you read the value at the first place then do += 1 and move to read the next value
+  }
+
+  int quarter;
+  cin >> quarter;
+
+  while(quarter--) {  //quarter is the number of number we want the counting of
+    int number;
+    cin >> number; //we enter the number whose input we want
+                        
+    // fetch
+    cout << hash[number] << endl; //it will print it
+  }
+  //This might seem tough but give it some practice and youre good to go
+    cout<<"******************************************************************24" << endl;
+
+
+  //Similarly we see the same for alphabets
+  string society;  // we defined string because we need to compute in alphabets
+cin >> society; //we put abcdefgabc
+
+//pre compute
+int hasher[256] = {0};  // we used 256 as it includes both small letters and capital letters
+
+for (int i = 0; i < society.size(); i++) { //there is unique size of each alphabet
+  hasher[society[i]]++; //in an array we put value of each thing
+}
+
+int quantum; 
+
+cin >> quantum; //it includes the number 5 i.e. the number ofinputs whose count we have to count
+while (quantum--) {
+
+  char char_;  
+  cin >> char_; //we enter those alphabets whose count we want
+
+  // fetch
+  cout << hasher[char_] << endl;
+
+}
+    cout<<"******************************************************************25" << endl;
+
+    //we can hash using arrays only till 10^7
+    //in such cases we just need to change the pre-compute statement
+    int nezo;
+    cin >> nezo; //we asked for how many numbers are there who are in the array
+    int aaron[nezo];
+    for(int intra=0;intra<nezo;intra++){
+        cin >> aaron[intra]; //we put the numbers
+    }
+    map<int,int> mpp; //we define the starting and end of the array which is bigger than 10^7
+    for(int intra=0;intra<nezo;intra++){
+        mpp[aaron[intra]]++;
+    }
+    int quizzer;
+    cin>>quizzer; //we put the number o numbers there are whose count we have to count
+    while(quizzer--){
+        int nazzero;
+        cin>>nazzero; //we give the numbers
+    cout<<mpp[nazzero]<<endl;
+    }
+    //There are two types of maps ordered and unordered
+    //map is used to store elements as key,value pairs in order sorted by key is ordered map, they have time complexity O(log n)
+    //unordered map is used to store elements as key,value pairs in non-sorted order, they have time complexity of o(1)
+    cout<<"******************************************************************26" << endl;
+
+   
+
+
+
+
+
 
 
 
