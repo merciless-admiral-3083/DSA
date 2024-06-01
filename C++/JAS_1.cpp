@@ -394,7 +394,7 @@ int main() {
     cin.ignore(); //this is used to clear the space used for taking input
     cout << "Value of x: " << x  << " and y: " << y << endl; ///just a print statement
     cout << "******************************************************************1" << endl;
-    //there are typs of numerical inputs like we have integer, long, longlong etc
+    //there are types of numerical inputs like we have integer, long, longlong etc
     //int a=10; //integer have a limit of numerical
     //long a=103; //this has a larger limit of numericals i.e. range
     //long long a=500; //longer longer limit
@@ -688,7 +688,6 @@ while (quantum--) {
     //map is used to store elements as key,value pairs in order sorted by key is ordered map, they have time complexity O(log n)
     //unordered map is used to store elements as key,value pairs in non-sorted order, they have time complexity of o(1)
     cout<<"******************************************************************26" << endl;
-
    
 
 
