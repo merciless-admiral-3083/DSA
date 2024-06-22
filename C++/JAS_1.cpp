@@ -388,6 +388,126 @@ void recursiveFunction(int n) { //it is used by the  function to call itself
 }
 
 //Time complexity of 'push' and 'pop' happpens in log n and time complexity of top in o(1)
+
+void merge(vector<int> &arrayyy, int low, int mid, int high) { //this will merge the vectors
+  vector<int> temponential;//used to create a vector
+
+  int left = low; 
+  int right = mid + 1;
+
+    while (left <= mid && right <= high) { //used to merge elements from left and right sub-arrays
+        if (arrayyy[left] <= arrayyy[right]) { // used to push elements accordng to their size
+        temponential.push_back(arrayyy[left]);
+        left++;
+        } else {
+        temponential.push_back(arrayyy[right]);
+        right++;
+        }
+    }
+
+  while (left <= mid) {  // Add remaining elements from the left sub-array
+    temponential.push_back(arrayyy[left]);
+    left++;
+  }
+
+  while (right <= high) { // Add remaining elements from the right sub-array
+    temponential.push_back(arrayyy[right]);
+    right++;
+  }
+
+  for (int interim = low; interim <= high; interim++) { // Copy sorted elements back to the original array
+    arrayyy[interim] = temponential[interim - low];
+  }
+    }
+    void mS(vector<int> &arrayyy, int low, int high) {
+    if (low >= high) return; //if this condition is true then return
+
+    int mid = (low + high) / 2; //used to split the array in half
+    mS(arrayyy, low, mid); //this is the first array which includes left to mid
+    mS(arrayyy, mid + 1, high); //2nd array including mid+1 to high
+    merge(arrayyy, low, mid, high); //IT IS OF 'MERGE' CLASS it merges the two sorted halves of the array
+    }
+
+    int partition(vector<int>& array_, int low_, int high_) { //we defined things to be present in the array
+    int pivot_= array_[high_]; // Choosing the last element as the pivot
+    int i_= low_- 1; // Initializing left pointer 
+
+    for (int j_= low_; j_< high_; j_++) {  //till the time j_ is less than high__ keep on running
+        if (array_[j_] < pivot_) { //we compare j_ to pivot and if it is low then scan for next
+            i_++;
+            swap(array_[i_], array_[j_]); //swap the smaller thing and bring it to left
+        }
+    }
+
+    // Place pivot in the correct position
+    swap(array_[i_+ 1], array_[high_]); 
+    return i_+ 1; // Return the pivot index
+}
+
+// Recursive QuickSort function
+void quickSortRecursive(vector<int>& array_, int low_, int high_) { 
+    if (low_< high_) {
+        int pIndex = partition(array_, low_, high_); 
+        quickSortRecursive(array_, low_, pIndex - 1); //we defined the 2 arrays
+        quickSortRecursive(array_, pIndex + 1, high_);
+    }
+}
+
+// QuickSort function
+vector<int> quickSort(vector<int>& array_) {
+    quickSortRecursive(array_, 0, array_.size() - 1); // Start the recursion
+    return array_; // Return the sorted array
+}
+
+
+int findSecondLargest(int aorr[], int nigeria) {//we defined things
+   
+
+    int first = aorr[0]; //first element if first
+    int second = aorr[1];
+
+    // Ensure first > second after initialization
+    if (first < second) { //we sort the array
+        swap(first, second);
+    }
+
+    for (int international = 1; international < nigeria; international++) {  //for i<n i++
+        if (aorr[international] > first) { //if i is more than first then make the second eleement as first i.e. the true sorting
+            second = first; 
+            first = aorr[international]; //we put the first element in the array
+        } else if (aorr[international] > second && aorr[international] != first) { //else if arr[i]>second & arr[i]!= first then make it second element
+            second = aorr[international];
+        }
+    }
+    return second; //this statement is necessary idk why
+}
+
+int removeDuplicates(vector<int> &aqua) {
+    
+    int ivory = 0;  // Index for writing unique elements
+
+    for (int noise = 1; noise < aqua.size(); noise++) {
+        if (aqua[ivory] != aqua[noise]) {
+            // Move unique element to the next position in the array
+            ivory++;
+            aqua[ivory] = aqua[noise];//The element at index noise in the array aqua is assigned to the position ivory in the same array.
+                //This effectively moves the unique element found at noise to the next position in the array, as indicated by ivory.
+        }
+    }
+
+    // The new size of the array without duplicates
+    return ivory + 1;
+}
+
+void rotateLeftByOne(vector<int>& arr) {
+   
+    int firstElement = arr[0]; //first element is 0
+    for (size_t i = 1; i < arr.size(); ++i) {
+        arr[i - 1] = arr[i];
+    }
+    arr[arr.size() - 1] = firstElement;
+}
+
 int main() {
     int x,y; //it is used to define 2 variables
     cin >> x >> y; //used to ask input of 2 variables
@@ -408,10 +528,11 @@ int main() {
     string s2; //similarly here
     cin >>s1>>s2; //it will ask user input for s1 and s2
     cout<<s1<< " " <<s2 << endl; // print
-    cout << "******************************************************************4" << endl;
+    cout << "*************** ***************************************************4" << endl;
     //BUT we can also use a statement where we need not use s1 s2... if we have a paragraph to write, so we use
     cin.ignore();
     string str; //naming
+    //There is no need of mentioning cin>> individually
     getline(cin, str); //getline provides the output for text in that WHOLE LINE!
     cout << str<<endl;
     cout << "******************************************************************5" << endl;
@@ -466,12 +587,17 @@ int main() {
             cout <<"Invalid day" <<endl;
             break;
     }
+    //fact by me: if weput 1, or we put 01, or 001, we get the answer linked to 1 
     cout << "******************************************************************9" << endl;
     int arr[5]; //used to define length of array
-    cin>>arr[0]>>arr[1]>>arr[2]>>arr[3]>>arr[4]; //used to print array
+    cin>>arr[0]>>arr[1]>>arr[2]>>arr[3]>>arr[4]; //used to take input for array
     arr[3] += 10; //mathematical operations on array
     cout<<arr[3] <<endl; //used to print math's output
     arr[4]  =15; //we can change value of 4th position
+    //we can print the whole aray as follows
+    for(int iguana;iguana<5;iguana++){
+        cout<<arr[iguana]<<endl;
+    }
     //we can store decimals by replacing int arr[5] to double arr[5]
     cout << "******************************************************************10" << endl;
     int ar[3][5]; //used for 2D array aka matrix
@@ -534,14 +660,14 @@ int main() {
     // * * *
     // * * * * and so on...
     int u;
-  cin >> u;
+     cin >> u;
 
-  for(int a = 0; a<u;a++) {  
+     for(int a = 0; a<u;a++) {  
     int m;
 
     cin >> m;
     print3(m);
-  }
+    }
     cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^18" << endl;
     //Pattern #3, labellled as print 4
     // 1
@@ -585,84 +711,94 @@ int main() {
     int numerical = 4;
     recursiveFunction(numerical);
     cout<<"******************************************************************22" << endl;
-   //now we will see how to count number of characters in alphabets
+    cout<<"***Run the below codes in individual file to get the correct output***"<<endl;
+    //now we will see how to count number of characters in alphabets
    
-//     string string; //we defined a string
-//     cin >> string;
-//     int hash[256] = {0}; //hash[] is the size of the array if can be anything big, {0} tells that it initially starts with 0 as counting
+    //     string string; //we defined a string
+    //     cin >> string;
+    //     int hash[256] = {0}; //hash[] is the size of the array if can be anything big, {0} tells that it initially starts with 0 as counting
 
-//     for(int eye=0;eye<string.size();eye++){ //we defined the size of string to increase till we count the characters in thee word
-//         hash[string[eye]]++; //++ means keeps increasing
-//     }
-//     int queen; //it is the number of characters
-//     cin >> queen;
+    //     for(int eye=0;eye<string.size();eye++){ //we defined the size of string to increase till we count the characters in thee word
+    //         hash[string[eye]]++; //++ means keeps increasing
+    //     }
+    //     int queen; //it is the number of characters
+    //     cin >> queen;
 
-//     while(queen--) { //-- shows tha when you find that word enter it in the required place
-//         char character;
-//         cin >> character;
-//     cout << hash[character] << endl;
-// }
-//SOME THINGS CAN'T BE FULLY UNDERSTOOD INSTEAD TRY TO UNDERSTAND THEIR WAY
-    cout<<"******************************************************************23" << endl;
-   //HASHING- It is pre-storing and fetching
-   /*If we are given an array with numbers like 1 2 3 2 1 in it and we have to ocunt the number of 
-   1s or 2s etc in this then we can do it start counting, let say we are given to cont 1 in the array
-   then th intal value will be zero and when we reach the first number we can say that 1 has appreared
-   so the count will be updated to 1, when we go to the 2nd digit i.e. 2 then nothing will be updated and so on
-   the loop will continue */
-    int norwaym;                         
-  cin >> norwaym;
-  int ammay[norwaym]; //whatever be the numbers entered, make an array of them
+    //     while(queen--) { //-- shows tha when you find that word enter it in the required place
+    //         char character;
+    //         cin >> character;
+    //     cout << hash[character] << endl;
+    // }
+    //SOME THINGS CAN'T BE FULLY UNDERSTOOD INSTEAD TRY TO UNDERSTAND THEIR WAY
+        cout<<"******************************************************************23" << endl;
+        
+    //HASHING- It is pre-storing and fetching
+    /*If we are given an array with numbers like 1 2 3 2 1 in it and we have to ocunt the number of 
+    1s or 2s etc in this then we can do it start counting, let say we are given to cont 1 in the array
+    then th intal value will be zero and when we reach the first number we can say that 1 has appreared
+    so the count will be updated to 1, when we go to the 2nd digit i.e. 2 then nothing will be updated and so on
+    the loop will continue */
+       int norwaym;                         
+    cin >> norwaym;
+    int ammay[norwaym]; //whatever be the numbers entered, make an array of them
 
-  for(int i=0;i<norwaym;i++) { //yk it
-    cin >> ammay[i]; //here position is given to each input value
-  }
+    for(int i=0;i<norwaym;i++) { //yk it
+        cin >> ammay[i]; //here position is given to each input value
+    }
 
                                                        
-  // precompute
-  int hash[13] = {0}; //we define the size of the array as 13, that it has 13 blocks
+    // precompute
+    int hash[1001] = {0}; //we define the size of the array as 13, that it has 13 blocks
 
-  for(int i=0;i<norwaym;i++) {  
-    hash[ammay[i]] += 1; //we start counting that when you read the value at the first place then do += 1 and move to read the next value
-  }
+    for(int i=0;i<norwaym;i++) {  
+        hash[ammay[i]] += 1; //we start counting that when you read the value at the first place then do += 1 and move to read the next value
+    }
 
-  int quarter;
-  cin >> quarter;
+    int quarter;
+    cin >> quarter;
 
-  while(quarter--) {  //quarter is the number of number we want the counting of
-    int number;
-    cin >> number; //we enter the number whose input we want
-                        
-    // fetch
-    cout << hash[number] << endl; //it will print it
-  }
-  //This might seem tough but give it some practice and youre good to go
+    while(quarter--) {  //quarter is the number of number we want the counting of
+        int number;
+        cin >> number; //we enter the number whose input we want
+                            
+        // fetch
+        cout << hash[number] << endl; //it will print it
+    }
+    /*input in input.txt is
+    5
+    1 2 3 2 1
+    3
+    1
+    2
+    4
+    */
+    //This might seem tough but give it some practice and youre good to go
     cout<<"******************************************************************24" << endl;
 
+    cout<<"***Run the below codes in individual file to get the correct output***"<<endl;
+    // //Similarly we see the same for alphabets
+    // string society;  // we defined string because we need to compute in alphabets
+    // cin >> society; //we put abcdefgabc
 
-  //Similarly we see the same for alphabets
-  string society;  // we defined string because we need to compute in alphabets
-cin >> society; //we put abcdefgabc
+    // //pre compute
+    // int hasher[256] = {0};  // we used 256 as it includes both small letters and capital letters
 
-//pre compute
-int hasher[256] = {0};  // we used 256 as it includes both small letters and capital letters
+    // for (int i = 0; i < society.size(); i++) { //there is unique size of each alphabet
+    // hasher[society[i]]++; //in an array we put value of each thing
+    // }
 
-for (int i = 0; i < society.size(); i++) { //there is unique size of each alphabet
-  hasher[society[i]]++; //in an array we put value of each thing
-}
+    // int quantum; 
 
-int quantum; 
+    // cin >> quantum; //it includes the number 5 i.e. the number ofinputs whose count we have to count
+    // while (quantum--) {
 
-cin >> quantum; //it includes the number 5 i.e. the number ofinputs whose count we have to count
-while (quantum--) {
+    // char char_;  
+    // cin >> char_; //we enter those alphabets whose count we want
 
-  char char_;  
-  cin >> char_; //we enter those alphabets whose count we want
+    // // fetch
+    // cout << hasher[char_] << endl;
 
-  // fetch
-  cout << hasher[char_] << endl;
-
-}
+    // }
     cout<<"******************************************************************25" << endl;
 
     //we can hash using arrays only till 10^7
@@ -684,10 +820,140 @@ while (quantum--) {
         cin>>nazzero; //we give the numbers
     cout<<mpp[nazzero]<<endl;
     }
+    /*Input in input.txt is
+    5
+    1 2 2 3 4
+    3
+    2
+    3
+    5
+    */
     //There are two types of maps ordered and unordered
     //map is used to store elements as key,value pairs in order sorted by key is ordered map, they have time complexity O(log n)
     //unordered map is used to store elements as key,value pairs in non-sorted order, they have time complexity of o(1)
     cout<<"******************************************************************26" << endl;
+    //I have skipped non-important sortng methods and i will do only MergeSort and Quick Sort
+    // Merge Sort
+    //Merge sort works on the concept of Z.png present in the folder
+    /*
+    mergesort(arr,low,high){
+        if(low==high)
+            return;
+            mid=(low+high)/2;
+            mergesort(arr,low,mid);
+            mergesort(arr,mid+1,high);
+            mergesort(arr,low,mid,high)
+        }
+        what hapens here is that we have an array 5 7 2 9 4 where 5 is te low value and 4 is the high value, we need to mergesort the array
+        see from line 704 now, we need to split the array in half, so we used mid statement, then we formed 2 new arrays of low and mid and one of mid+1 and high
+        we continued the same process to split the array in half till low==high i.e. the low number=high number
+
+
+
+    */
+    vector<int> arrayyy = {38, 27, 34, 5, 8, 82, 10};
+
+    cout << "Original array: ";
+    for (int interim = 0; interim < arrayyy.size(); interim++) {//we mentioned all of this and not <<arrayyy because it is in vector form array
+    //this can be only printed using the above code
+        cout << arrayyy[interim] << " ";
+    }
+    cout << endl;
+
+    mS(arrayyy, 0, arrayyy.size() - 1); //calls ms to sort the array
+
+    cout << "Sorted array: ";
+    for (int interim = 0; interim < arrayyy.size(); interim++) {
+        cout << arrayyy[interim] << " ";
+    }
+    cout << endl;
+    cout<<"******************************************************************27" << endl;
+    //Quick sort
+    /* Refer to image named Y in the folder, also Quick sort refers to taking the pivot i..e any random element in the array 
+    like first , last element, middle element etc and place it in the correct sorted manner in the array 
+    5 9 4 6 3 2 1 7 8, let say i took 5 as pivot and placed it to its correct place, 9 4 6 3 5 2 1 7 8
+    then split into 2 arrays left and right to pivot (dont include pivot number in any of the 2 array)
+    then do the same for splitted array until we reach 1 element each array then sort the arraya and move up the same table
+    */
+
+     int n_;
+
+    cin >> n_;
+
+    vector<int> array_(n_);
+    
+    for (int i_= 0; i_< n_; i_++) {
+        cin >> array_[i_];
+    }
+
+    quickSort(array_);
+
+    cout << "Sorted array: ";
+    for (int num_: array_) {
+        cout << num_<< " ";
+    }
+    cout << endl;
+    //if we say the size of array as 6 then it has elements numbered 0 1 2 3 4 5
+    //initially the value fo array is garbage but if we enter any value inside the array the remaning values become 0
+    //inside int main, max size of array is 10^6 and outside i.e. globally its 10^7
+    cout<<"******************************************************************28" << endl;
+    cout<<"Input where 6 *next line 7 9 5 4 3 is written, input is synced to the code" << endl;
+    cout<<"******************************************************************27" << endl;
+    //printing largest element of an array
+   vector<int> numan = {1, 2, 3, 4, 5};//we made an array
+    
+    // Initialize largest with the first element
+    int largest = numan[0]; //we defined largest is first element of the array
+    
+    // Iterate through the vector
+    for (int jammer = 1; jammer < numan.size(); jammer++) { //it will start reading the values till the end of array
+        // Update largest if the current element is larger
+        if (numan[jammer] > largest) {  //we keep on reading jammer
+        //1 then 2 then 3 then 4 then 5, since largest has 0 as value and we compare numan[jammer] then we see that if something is greater then 0 then
+            largest = numan[jammer]; //assign the value of largest as that number
+        }
+    }
+    
+    // Output the largest element
+    cout << "Largest element is " << largest << endl;
+    cout<<"******************************************************************28" << endl;
+    //2nd largest array
+    int aorr[] = {10, 5, 20, 8, 12}; //we defined array
+    int nigeria = sizeof(aorr) / sizeof(aorr[0]); 
+
+    int secondLargest = findSecondLargest(aorr, nigeria);
+
+    if (secondLargest != -1) {
+        cout << "The second largest element is: " << secondLargest << endl;
+    }
+    cout<<"******************************************************************29" << endl;
+    //to remove duplicate element in sorted array
+    vector<int> aqua = {1, 1, 2, 2, 2, 3, 4, 4, 5};
+
+    cout << "Original array:\n";
+    for (int noise : aqua) { //in this noise takes on current value of aqua
+        cout << noise << " ";
+    }
+    cout << "\n";
+
+    int newSize = removeDuplicates(aqua);
+
+    cout << "Array after removing duplicates:\n";
+    for (int ivory = 0; ivory < newSize; ivory++) {
+        cout << aqua[ivory] << " ";
+    }
+    cout << "\n";
+    cout<<"******************************************************************30" << endl;
+    //rotate array left by 1 place 
+    //i.e. [1 2 3 4] to [2 3 4 1]
+
+
+
+
+
+
+
+
    
 
 
