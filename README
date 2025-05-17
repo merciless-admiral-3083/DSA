@@ -1,1 +1,44 @@
-First we started from basics like loops and all, and to run the code use Ctrl+F5
+# Java DSA Practice
+
+This repository contains Java programs for practicing basic Data Structures and Algorithms (DSA) concepts, user input handling, and control structures.
+
+## Files
+
+- [JAS_1.java](JAS_1.java):  
+  A comprehensive Java program demonstrating:
+  - Difference between `while` and `do-while` loops
+  - Taking user input for various tasks
+  - Finding the maximum of two numbers
+  - Extracting a specific character from a string
+  - Generating a Fibonacci series
+  - A simple calculator supporting `+`, `-`, `*`, `/`, `%` operations (exits on `x` or `X`)
+  - Printing all prime numbers up to a user-specified limit
+  - Checking if a number is an Armstrong number
+  - Reading and printing an array of integers
+
+- [Prac.java](Prac.java):  
+  A simple Java program to print the Fibonacci series up to a user-specified number of terms.
+
+## How to Run
+
+1. **Compile the Java files:**
+   ```sh
+   javac JAS_1.java Prac.java
+   ```
+
+2. **Run a program:**
+   ```sh
+   java JAS_1
+   ```
+   or
+   ```sh
+   java Prac
+   ```
+
+## Launch Configurations
+
+The project includes a [VS Code launch configuration](.vscode/launch.json) for debugging and running Java files.
+
+---
+
+Feel free to explore and modify the code for your learning!
