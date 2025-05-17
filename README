@@ -51,12 +51,6 @@ This project includes a ready-to-use [VS Code launch configuration](.vscode/laun
 
 ---
 
-## 💡 Tip
-
-Feel free to explore, modify, and experiment with the code! It’s a great way to improve your understanding of loops, conditionals, functions, and more.
-
----
-
 ## 📜 License
 
 This project is released for educational purposes. Feel free to fork and use it for your own practice.
