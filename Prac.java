@@ -1,23 +1,27 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Prac {
     public static void main(String[] args) {
-        Scanner in =new Scanner(System.in);
-        System.out.println("Enter number of terms: ");
-        int n= in.nextInt(); //we asked for integer input
-        int first=0, second=1;
-        for(int i=0;i<n;i++){
-            if (i == n - 1) { //n-1 because we have i<n in the for loop
-                System.out.print(first + "...");
-            } else {
-                System.out.print(first + ", ");
-            }
-            int next=first+second;
-            first=second;
-            second=next;
-        }
-        in.close();
-        }
-    }
-    
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter number of elements: ");
+        int nope = input.nextInt();
+        int[] arroid = new int[nope];
 
+        System.out.println("Enter " + nope + " elements:");
+        for (int io = 0; io < nope; io++) {
+            arroid[io] = input.nextInt();
+        }
+
+        // Initialize max with first element
+        int maximum = arroid[0];
+        for (int iop = 1; iop < arroid.length; iop++) {
+            if (arroid[iop] > maximum) {
+                maximum = arroid[iop];
+            }
+        }
+
+        System.out.println("Maximum value: " + maximum);
+
+    }
+}
