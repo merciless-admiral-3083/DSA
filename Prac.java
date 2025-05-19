@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Prac {
@@ -22,6 +21,6 @@ public class Prac {
         }
 
         System.out.println("Maximum value: " + maximum);
-
+        input.close();
     }
 }

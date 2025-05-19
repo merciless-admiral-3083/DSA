@@ -11,7 +11,8 @@ public class JAS_1 {
             }
         }
         return -1; // Return -1 if the target is not found
-    }
+    }        //Now we may be asked to find the element if it is present between index x and y example in betwween index 2 and 5, then just add int start and int end in the method and then itta=start and itta<=end
+
 
     public static void main(String[] args) {
         int n = 5;
@@ -169,6 +170,7 @@ public class JAS_1 {
             arr[i]=input.nextInt();
             System.out.print(arr[i]);
         }
+        System.out.println();
         arr[1]= 5; //we are defining that no matter what the user input is, the second element of the array will be 5
         System.out.println("Updated array:");
         for (int point : arr) { //another way to iterate through an array
@@ -176,6 +178,7 @@ public class JAS_1 {
         }
 
         //Now to convert an array to a string we can use Arrays.toString(arr) method, it will provide '[]' and ',' too
+        // str.toCharArray() will convert string to char array
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         //2D Array Input
         System.out.print("Enter number of rows: ");
@@ -269,9 +272,43 @@ public class JAS_1 {
         } else {
             System.out.println("Element found at index: " + resultor);
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Minimum value of the array
+        int[] arrim = {5, 3, 8, 1, 9, 2};
+        
+        int min = arrim[0]; // Start by assuming first element is minimum
+        
+        for (int i = 1; i < arrim.length; i++) {
+            if (arrim[i] < min) {
+                min = arrim[i]; // Update min if current element is smaller
+            }
+        }
+        
+        System.out.println("Minimum number in the array is: " + min);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // To search 2D array
+        int[][] numbers = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
 
+        int targeting = 5; // number to find
+        boolean found = false;
 
-
+        // Go through each row and each column
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = 0; j < numbers[i].length; j++) {
+                if (numbers[i][j] == targeting) {
+                    System.out.println("Found at row " + i + ", column " + j);
+                    found = true;
+                    break; // break inner loop
+                }
+            }
+            if (found) {
+                break; // break outer loop if found
+            }
+        }
 
 
 
