@@ -247,8 +247,20 @@ public class JAS_1 {
         for (int val : arrays) System.out.print(val + " ");
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         //Linear Search, its class is above
-        int[] rra = {4, 7, 1, 9, 2, 5};
-        int target = 9;
+        System.out.print("Enter the number of elements in the array: ");
+        int size = input.nextInt();
+
+        int[] rra = new int[size];
+
+        // Input array elements
+        System.out.println("Enter " + size + " integers:");
+        for (int itta = 0; itta < size; itta++) {
+            rra[itta] = input.nextInt();
+        }
+
+        // Input the target value to search
+        System.out.print("Enter the element to search for: ");
+        int target = input.nextInt();
 
         int resultor = linearSearch(rra, target);
 
