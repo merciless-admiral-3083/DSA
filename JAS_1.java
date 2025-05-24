@@ -12,7 +12,55 @@ public class JAS_1 {
         }
         return -1; // Return -1 if the target is not found
     }        //Now we may be asked to find the element if it is present between index x and y example in betwween index 2 and 5, then just add int start and int end in the method and then itta=start and itta<=end
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    public static int binarySearch(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) {
+                return mid; // target found
+            } else if (arr[mid] < target) {
+                left = mid + 1; // search right half
+            } else {
+                right = mid - 1; // search left half
+            }
+        }
+
+        return -1; // target not found
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static int orderAgnosticBinarySearch(int[] arr, int target) {
+        int left = 0, right = arr.length - 1;
+        boolean isAscending = arr[left] < arr[right];
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            if (arr[mid] == target) {
+                return mid; // target found
+            }
+
+            if (isAscending) {
+                if (arr[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            } else { // descending order
+                if (arr[mid] > target) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+        }
+
+        return -1; // target not found
+    }
 
     public static void main(String[] args) {
         int n = 5;
@@ -309,11 +357,64 @@ public class JAS_1 {
                 break; // break outer loop if found
             }
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Count numbers with even number of digits
+        int[] array_values = {12, 345, 2, 6, 7896};
+        int counting_numbers = 0;
 
+        for (int numerical : array_values) {
+            int digital = (int) Math.log10(numerical) + 1;
+            if (digital % 2 == 0) {
+                counting_numbers++;
+            }
+        }
 
+        System.out.println("Count of numbers with even number of digits: " + counting_numbers);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Write a Java program to find the maximum total wealth among customers based on their bank account balances.
+        System.out.print("Enter number of customers: ");
+        int customers = input.nextInt();
 
+        System.out.print("Enter number of banks per customer: ");
+        int banks = input.nextInt();
 
+        int[][] accounts = new int[customers][banks];
 
+        // Input account balances
+        for (int i = 0; i < customers; i++) {
+            System.out.println("Enter balances for customer " + (i + 1) + ":");
+            for (int j = 0; j < banks; j++) {
+                accounts[i][j] = input.nextInt();
+            }
+        }
+
+        int maxWealth = 0;
+
+        // Calculate max wealth
+        for (int i = 0; i < customers; i++) {
+            int wealth = 0;
+            for (int j = 0; j < banks; j++) {
+                wealth += accounts[i][j];
+            }
+            if (wealth > maxWealth) {
+                maxWealth = wealth;
+            }
+        }
+
+        System.out.println("Maximum wealth: " + maxWealth);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Binary Search, its class is above
+        int[] arrow = {1, 3, 5, 7, 9, 11};
+        int targetinge = 7;
+        int index = binarySearch(arrow, targetinge);
+        System.out.println("Index of target: " + index);
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Now there is an agnoustic binary search too, in this we have desending and ascending order of the array, now er need to search the array accordingly
+        int[] ascending = {1, 3, 5, 7, 9};
+        int[] descending = {9, 7, 5, 3, 1};
+
+        System.out.println("Index in ascending: " + orderAgnosticBinarySearch(ascending, 5));  // Output: 2
+        System.out.println("Index in descending: " + orderAgnosticBinarySearch(descending, 5));
 
 
 
