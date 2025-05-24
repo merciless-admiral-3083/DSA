@@ -82,6 +82,15 @@ public class JAS_1 {
         System.out.println("Enter two numbers to get max value: ");
         int a = input.nextInt();
         int b = input.nextInt();
+        
+        System.out.print("Say Hi: ");
+        String atomizer= input.nextLine();
+        if(atomizer.equals("Hi") || atomizer.equals("hi")){
+        System.out.println("Hello, how are you?");
+        }
+        else{
+            System.out.println("You didnt say hi to me, you said "+a);
+        }
 
         // To get max value using Math function
         int max = Math.max(a, b);
