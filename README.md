@@ -1,4 +1,4 @@
-# JAS_1.java - Java DSA and Programming Concepts Practice
+# Java DSA and Programming Concepts Practice
 
 This file is a comprehensive Java program that demonstrates a wide range of basic programming concepts, data structures, and algorithms. It is designed for learning and practicing Java, especially for those interested in Data Structures and Algorithms (DSA).
 
