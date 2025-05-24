@@ -84,14 +84,24 @@ public class JAS_1 {
         int b = input.nextInt();
         
         System.out.print("Say Hi: ");
-        String atomizer= input.nextLine();
-        if(atomizer.equals("Hi") || atomizer.equals("hi")){
+        String atomizer= input.nextLine(); //we can also use a.equalsIgnoreCase("hi") which will not depend on case sensitive letters like below
+        if(atomizer.equals("Hi") || atomizer.equals("hi") || atomizer.equals("HI")){
         System.out.println("Hello, how are you?");
         }
         else{
             System.out.println("You didnt say hi to me, you said "+a);
         }
 
+        //we can now create a new condition where if a particular word is present in the string then we use an output
+        System.out.println("write anything: ");
+        String scandal=input.nextLine();
+        if(scandal.toLowerCase().contains("hi")){//this "hi" must always be in lowercase
+            System.out.println("You just said 'Hi'");
+        }
+        else{
+            System.out.println("you didnt say hi to me, you said" + scandal);
+        }
+        
         // To get max value using Math function
         int max = Math.max(a, b);
         System.out.println("Maximum value: " + max);
