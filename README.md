@@ -1,56 +1,78 @@
-# 🌟 Java DSA Practice
+# JAS_1.java - Java DSA and Programming Concepts Practice
 
-This repository contains Java programs for practicing **Data Structures and Algorithms (DSA)**, including **control flow**, **user input handling**, **math operations**, and **problem-solving techniques**. It's ideal for students and beginners aiming to strengthen their Java foundations.
+This file is a comprehensive Java program that demonstrates a wide range of basic programming concepts, data structures, and algorithms. It is designed for learning and practicing Java, especially for those interested in Data Structures and Algorithms (DSA).
+
+## Features Demonstrated
+
+- **Looping Constructs**
+  - Difference between `while` and `do-while` loops
+
+- **User Input**
+  - Reading integers, doubles, characters, and strings from the user
+
+- **Math Operations**
+  - Finding the maximum of two numbers using `Math.max`
+  - Simple calculator supporting `+`, `-`, `*`, `/`, `%` (exits on `x` or `X`)
+
+- **String Handling**
+  - Extracting specific characters from a string
+
+- **Fibonacci Series**
+  - Generating and printing Fibonacci numbers
+
+- **Prime Numbers**
+  - Printing all prime numbers up to a user-specified limit
+
+- **Armstrong Number Check**
+  - Checking if a number is an Armstrong number
+
+- **Arrays**
+  - Reading and printing arrays in various formats
+  - Updating array elements
+  - Finding the maximum and minimum value in an array
+  - Reversing an array
+  - Linear search in an array
+
+- **2D Arrays**
+  - Reading and printing 2D arrays
+  - Searching for an element in a 2D array
+
+- **Array Algorithms**
+  - Counting numbers with even number of digits
+  - Finding the maximum total wealth among customers (LeetCode-style problem)
+
+- **Binary Search**
+  - Standard binary search for sorted arrays
+  - Order-agnostic binary search (works for both ascending and descending arrays)
+
+- **Dynamic Arrays**
+  - Using `ArrayList` for dynamic array operations
+
+## How to Run
+
+1. **Compile:**
+   ```sh
+   javac JAS_1.java
+   ```
+
+2. **Run:**
+   ```sh
+   java JAS_1
+   ```
+
+## Example Usage
+
+The program will prompt you for various inputs, such as numbers, strings, array sizes, and operators. Follow the on-screen instructions to explore each feature.
+
+## Learning Outcomes
+
+By studying and running this file, you will learn:
+- How to use loops, conditionals, and switch statements in Java
+- How to handle user input and output
+- How to work with arrays and ArrayLists
+- How to implement and use basic algorithms like searching and sorting
+- How to solve common programming problems
 
 ---
 
-## 📁 Project Structure
-
-### 🔹 [`JAS_1.java`](JAS_1.java)
-A multi-functional Java program that demonstrates:
-
-- 🔄 Differences between `while` and `do-while` loops  
-- 📥 Taking user input for:
-  - ✅ Finding the maximum of two numbers
-  - 🔡 Extracting a character from a string
-  - 🔢 Generating a Fibonacci series
-  - 🧮 Building a simple calculator (`+`, `-`, `*`, `/`, `%`)  
-  - 🧯 Exit on entering `x` or `X`
-  - 🔍 Printing all prime numbers up to a given limit
-  - 💠 Checking if a number is an Armstrong number
-  - 📦 Reading and printing elements from an integer array
-
----
-
-### 🔹 [`Prac.java`](Prac.java)
-A concise Java program to:
-
-- Generate and print the **Fibonacci series** up to a user-defined number of terms.
-
----
-
-## ▶️ How to Run
-
-### 1. **Compile the programs**
-```bash
-javac JAS_1.java Prac.java
-```
-
-### 2. **Run the programs**
-```bash
-java JAS_1
-# or
-java Prac
-```
-
----
-
-## 🛠️ VS Code Setup
-
-This project includes a ready-to-use [VS Code launch configuration](.vscode/launch.json) for easy debugging and execution of Java files.
-
----
-
-## 📜 License
-
-This project is released for educational purposes. Feel free to fork and use it for your own practice.
+Feel free to modify and experiment with the code to deepen your understanding of Java and DSA concepts!
