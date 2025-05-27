@@ -82,8 +82,80 @@ public class JAS_1 {
 
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+        boolean swapped;
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            // Last i elements are already in place
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Swap arr[j] and arr[j+1]
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    swapped = true;
+                }
+            }
+            // If no two elements were swapped, array is sorted
+            if (!swapped) {
+                break;
+            }
+        }
+    }
+
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+
+            // Find the index of the minimum element
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            // Swap the found minimum with the first element
+            if (minIndex != i) {
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
+    }
 
 
+
+    public static void selectionSort(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap the found minimum element with the first element of unsorted part
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+    }
 
     public static void main(String[] args) {
         int n = 5;
@@ -458,71 +530,41 @@ public class JAS_1 {
         System.out.println("Index in ascending: " + orderAgnosticBinarySearch(ascending, 5));  // Output: 2
         System.out.println("Index in descending: " + orderAgnosticBinarySearch(descending, 5));
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        // Binary Search in Row column matrix
-        //See class made for it
+        //There is one class above for SearchingSortedMatrix
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //BubbleSort
+        int[] arrayss = {64, 34, 25, 12, 22, 11, 90};
+        
+        System.out.println("Original array:");
+        printArray(arrayss);
+
+        bubbleSort(arrayss);
+
+        System.out.println("Sorted array:");
+        printArray(arrayss);
+    
+        /*Theory of bubble sort:
+        ----Its other names: 1.Sinking Sort 2.Exchange Sort 3.Comparison Sort 4.Straight Sort
+        ----Time Complexity: 1.Best Case: O(n) 2.Average Case: O(n^2) 3.Worst Case: O(n^2)
+        ----Space Complexity: O(1) (Constant space)
+        ----Stable: Yes, it maintains the relative order of equal elements.
+        ----In-Place: Yes, it requires only a constant amount of additional space.
+
+
+        */
 
 
 
+        int[] arraysss = {64, 34, 25, 12, 22, 11, 90};
 
+        System.out.println("Original array:");
+        printArray(arraysss);
 
+        selectionSort(arraysss);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        System.out.println("Sorted array:");
+        printArray(arraysss);
+    
 
 
         input.close(); // close only once at the end
