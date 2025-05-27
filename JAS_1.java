@@ -61,6 +61,27 @@ public class JAS_1 {
 
         return -1; // target not found
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static boolean searchMatrix(int[][] matrix, int target) {
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+
+        int row = 0;
+        int col = cols - 1;  // Start from top-right corner
+
+        while (row < rows && col >= 0) {
+            int current = matrix[row][col];
+            if (current == target) {
+                return true; // Target found
+            } else if (current > target) {
+                col--; // Move left
+            } else {
+                row++; // Move down
+            }
+        }
+
+        return false; // Target not found
+    }
 
     public static void main(String[] args) {
         int n = 5;
@@ -434,7 +455,21 @@ public class JAS_1 {
 
         System.out.println("Index in ascending: " + orderAgnosticBinarySearch(ascending, 5));  // Output: 2
         System.out.println("Index in descending: " + orderAgnosticBinarySearch(descending, 5));
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Binary Search in Row column matrix
+        //See class made for it
+        int[][] matrix = {
+            {1, 4, 7, 11},
+            {2, 5, 8, 12},
+            {3, 6, 9, 16},
+            {10, 13, 14, 17}
+        };
 
+        int targeter = 9;
+
+        boolean resulter = searchMatrix(matrix, targeter);
+        System.out.println("Target " + targeter + resulter + " found." );
+    }
 
 
 
