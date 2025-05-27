@@ -62,26 +62,28 @@ public class JAS_1 {
         return -1; // target not found
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public static boolean searchMatrix(int[][] matrix, int target) {
-        int rows = matrix.length;
-        int cols = matrix[0].length;
+    public static void SearchSortedMatrix(int[][] matrix, int target) {
 
-        int row = 0;
-        int col = cols - 1;  // Start from top-right corner
+    int row = 0;
+    int col = matrix[0].length - 1;
 
-        while (row < rows && col >= 0) {
-            int current = matrix[row][col];
-            if (current == target) {
-                return true; // Target found
-            } else if (current > target) {
-                col--; // Move left
-            } else {
-                row++; // Move down
-            }
+    while (row < matrix.length && col >= 0) {
+        if (matrix[row][col] == target) {
+            System.out.println("Found at row " + row + ", col " + col);
+            return;
+        } else if (matrix[row][col] > target) {
+            col--;
+        } else {
+            row++;
         }
-
-        return false; // Target not found
     }
+
+    System.out.println("Not Found");
+
+    }
+
+
+
 
     public static void main(String[] args) {
         int n = 5;
@@ -458,18 +460,6 @@ public class JAS_1 {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         // Binary Search in Row column matrix
         //See class made for it
-        int[][] matrix = {
-            {1, 4, 7, 11},
-            {2, 5, 8, 12},
-            {3, 6, 9, 16},
-            {10, 13, 14, 17}
-        };
-
-        int targeter = 9;
-
-        boolean resulter = searchMatrix(matrix, targeter);
-        System.out.println("Target " + targeter + resulter + " found." );
-    }
 
 
 
