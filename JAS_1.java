@@ -134,6 +134,57 @@ public class JAS_1 {
         }
     }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// 
+        public static void cycleSort(int[] arr) {
+        int n = arr.length;
+
+        for (int start = 0; start < n - 1; start++) {
+            int item = arr[start];
+            int pos = start;
+
+            // Find the position where we should place the current item
+            for (int i = start + 1; i < n; i++) {
+                if (arr[i] < item) {
+                    pos++;
+                }
+            }
+
+            // If the item is already in the correct position, skip
+            if (pos == start) {
+                continue;
+            }
+
+            // Skip duplicates
+            while (item == arr[pos]) {
+                pos++;
+            }
+
+            // Swap the item into the correct position
+            if (pos != start) {
+                int temp = item;
+                item = arr[pos];
+                arr[pos] = temp;
+            }
+
+            // Rotate the rest of the cycle
+            while (pos != start) {
+                pos = start;
+                for (int i = start + 1; i < n; i++) {
+                    if (arr[i] < item) {
+                        pos++;
+                    }
+                }
+
+                while (item == arr[pos]) {
+                    pos++;
+                }
+
+                int temp = item;
+                item = arr[pos];
+                arr[pos] = temp;
+            }
+        }
+    }
     public static void main(String[] args) {
         int n = 5;
         do {
@@ -542,7 +593,84 @@ public class JAS_1 {
 
         System.out.println("Sorted array:");
         printArray(arraysss);
+        
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //Cycle Sort
+        //If the humbers are from 1 to N i.e. no gap, just 1,2,3... and we need to sort them in O(n) time complexity then we can use cycle sort, it is a non-comparison based sorting algorithm
+        //we see that the index=value-1 i.e. for 2 in the array we hae its index as 1, so we will place the value at its index and then we will place the next value at its index and so on, this is how cycle sort works
+        int[] armani = {5, 3, 1, 2, 4};
+
+        System.out.println("Original array:");
+        for (int val : armani) {
+            System.out.print(val + " ");
+        }
+
+        cycleSort(armani);
+
+        System.out.println("\nSorted array:");
+        for (int val : armani) {
+            System.out.print(val + " ");
+        }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         input.close(); // close only once at the end
