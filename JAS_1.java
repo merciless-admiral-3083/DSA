@@ -164,6 +164,7 @@ public class JAS_1 {
                 item = arr[pos];
                 arr[pos] = temp;
             }
+            
 
             // Rotate the rest of the cycle
             while (pos != start) {
@@ -184,6 +185,19 @@ public class JAS_1 {
             }
         }
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public static boolean isPalindrome(String str) {
+        // Optional: Normalize the string (lowercase + remove spaces)
+        str = str.toLowerCase().replaceAll("\\s+", "");
+
+        // Reverse the string
+        String reversed = new StringBuilder(str).reverse().toString();
+
+        // Compare original and reversed
+        return str.equals(reversed);
+    }
+
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     public static void main(String[] args) {
         int n = 5;
@@ -228,7 +242,7 @@ public class JAS_1 {
         // To get max value using Math function
         int max = Math.max(a, b);
         System.out.println("Maximum value: " + max);
-
+        
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         // To get specific character
         System.out.println("Enter a string:");
@@ -551,7 +565,7 @@ public class JAS_1 {
         int index = binarySearch(arrow, targetinge);
         System.out.println("Index of target: " + index);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-        //Now there is an agnoustic binary search too, in this we have desending and ascending order of the array, now er need to search the array accordingly
+        //Now there is an agnostic binary search too, in this we have descending and ascending order of the array, now we need to search the array accordingly
         int[] ascending = {1, 3, 5, 7, 9};
         int[] descending = {9, 7, 5, 3, 1};
 
@@ -612,12 +626,51 @@ public class JAS_1 {
         for (int val : armani) {
             System.out.print(val + " ");
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // String Immutability
+        // String s1 = "Hello"; //String immutability means that once a String object is created, it cannot be changed.
+        // s1 = s1.concat(" World"); //we can add to the string but we cant change the existing string
+        // System.out.println(s1); // Output: Hello World
+        //Enables safe sharing (pooling) and thread-safe operations.
+        //String Pooling
+        // String s1 = "Hello";
+        // String s2 = "Hello";
+        // System.out.println(s1 == s2); // true (same object in the pool)
+        // String s3 = new String("Java");
+        // System.out.println(s1 == s3); // false (new object in heap)
+        // System.out.println(s1.equals(s3)); // true (same content)
+        //This happened because we had 'new' in the third string, which created a new object in the heap memory, while the first two strings were in the string pool.
+        //To move the third string to the string pool we can use s3.intern() method, it will return a string from the pool if it exists or add it to the pool if it doesn't exist.
+        //%.nf i.e. how many digits after decimal point we want to show, n= 1,2,3... and f is float ex %.2f will show 2 digits after decimal point, similarly for %c %d %s %b etc.
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //String Concatenation
+        System.out.println((char)('A' + 1)); // Output: B //we can move from one char to other using this
+        //Similarly we can get hwole alphabets using a loop till 26 characters
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //StringBuilder
+        StringBuilder sb= new StringBuilder("Hello");
+        sb.append(" World"); // Append to the StringBuilder
+        System.out.println(sb.toString()); // Convert to String and print 
+        //StringBuilder helps in efficient string manipulation as it is mutable, meaning we can change its content without creating a new object.
+        //we can also delete a character using
+        System.out.println(sb.deleteCharAt(0)); // Deletes the first character
+        System.out.println(sb.toString().toCharArray()); // Converts StringBuilder to char array, but before it we need to make everything as string
+        System.out.println(sb.reverse()); // Reverses the StringBuilder content
+        System.out.println(sb.indexOf("l"));
+        System.out.println(sb.toString().strip()); // used to remove whitespace from both ends of the string
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Check is palindrome or not
+        String inter = "madam"; // you can change this to any string
+        boolean isPalindrome = isPalindrome(inter);
+
+        if (isPalindrome) {
+            System.out.println(inter + " is a palindrome.");
+        } else {
+            System.out.println(inter + " is NOT a palindrome.");
+        }
     
 
-
-
-
-
+    
 
 
 
